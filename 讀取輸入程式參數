@@ -1,0 +1,20 @@
+
+Function: To make python file read parameters to avoid open and modify everytime to run it. Ex. python function.py --param1 value1 --param2 value2
+
+Use packages: sys, getopt
+
+For example, we want to run the .py file as: python function.py --param1 value1 --param2 value2
+
+import sys, getopt
+    argument_list = sys.argv[1:]  # get all parameters except the .py file itself
+    
+    try:
+         # Parse the input parameters 'arg_list', and set up different options to operate for different parameters
+         # getopt.getopt: input {argument list, short options, long options}
+         # return: (option, argument value), left argument value that is not called
+         arguments, left_arg = getopt.getopt(arg_list, 'i:s', ['img_path=', 'save_path'])
+         for opt, arg_value in arguments:
+             if opt in ('-i', '--img_path'):
+                 img_path = arg_value
+             
+         

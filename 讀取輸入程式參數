@@ -16,5 +16,16 @@ import sys, getopt
          for opt, arg_value in arguments:
              if opt in ('-i', '--img_path'):
                  img_path = arg_value
-             
+                 
+                 
+Another recommended way: argparse
+
+import argparse
+
+parser = argparse.ArgumentParser()
+
+parser.add_argument('-i', '--img_path', action = 'store')
+parser = parser.parse_args() # parse all argument
+parser = vars(parser) # convert object to dictionary
+img_path = parser['img_path']  # get the value from img_path parameters
          
